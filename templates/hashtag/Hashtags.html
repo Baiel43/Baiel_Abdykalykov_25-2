@@ -1,6 +1,6 @@
 {% extends 'layouts/index.html' %}
 
-{% block hashtag %}
+{% block Hashtag %}
     <style type="text/css">
         .posts {
             display: flex;
@@ -22,11 +22,12 @@
     </style>
 
     <p align="center">Hashtags</p>
-    {% for hashtag in hashtags %}
+    {% for hashtag in Hashtags %}
             <div class="posts">
                 <div class="post_block">
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
+                            <h5 class="card-title">{{ hashtag.title }}</h5>
                             <p>{{ hashtag.title }}</p>
                         </div>
                     </div>
