@@ -1,6 +1,6 @@
 from django.shortcuts import HttpResponse, render
 from datetime import datetime
-from posts.models import Products, Hashtag
+from products.models import Products, Hashtag
 
 
 def hello(request):
@@ -51,3 +51,15 @@ def products_view(request):
         }
 
         return render(request, 'products/products.html', context=context)
+
+
+def product_detail_view(request, id):
+    if request.method == 'GET':
+        product = Products.objects.get(id=id)
+
+        context = {
+            'product': product,
+            'reviews': product.Reviews.all()
+        }
+
+        return render(request, 'products/detail.html', context=context)

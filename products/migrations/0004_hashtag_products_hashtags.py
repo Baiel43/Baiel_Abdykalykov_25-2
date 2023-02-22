@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('posts', '0003_products_price'),
+        ('products', '0003_products_price'),
     ]
 
     operations = [
@@ -20,6 +20,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='products',
             name='hashtags',
-            field=models.ManyToManyField(blank=True, to='posts.hashtag'),
+            field=models.ManyToManyField(blank=True, to='products.hashtag'),
         ),
     ]

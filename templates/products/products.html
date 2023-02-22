@@ -1,4 +1,5 @@
 {% extends 'layouts/index.html' %}
+{% load static %}
 
 {% block content %}
     <style type="text/css">
@@ -28,13 +29,17 @@
             <div class="product_block">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <img class="product_image" src="/media/{{ product.image }}">
+                        {% if product.image %}
+                            <img class="product_image" src="/media/{{ product.image }}" alt="">
+                        {% else %}
+                            <img class="product_image" src="{% static 'img.png' %}" alt="">
+                        {% endif %}
                         <h5 class="card-title">{{ product.title }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Price: {{ product.price }}</h6>
                         {% for hashtag in product.hashtags %}
                             <p>{{ hashtag.title }}</p>
                         {% endfor %}
-                        <a href="#" class="card-link">More</a>
+                        <a href="/products/{{ product.id }}" class="card-link">More</a>
                     </div>
                 </div>
             </div>
