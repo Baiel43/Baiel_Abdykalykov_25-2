@@ -27,7 +27,7 @@ urlpatterns = [
     path('now_date/', now_date),
     path('goodby/', goodby),
     path('', main_page_view),
-    path('products', products_view),
+    path('products/', products_view),
     path('hashtags/', hashtags),
     path('products/<int:id>/', product_detail_view),
     path('products/create/', create_product_veiw),
