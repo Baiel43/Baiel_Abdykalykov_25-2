@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from products.views import hello, goodby, now_date, main_page_view, products_view, hashtags, product_detail_view, \
-    create_product_veiw
+from products.views import hello, goodby, now_date, MainPageCBV, ProductsCBV, hashtags, product_detail_view, \
+    CreateProductsCBV
 from django.conf.urls.static import static
 from onlineStore import settings
 from users.views import register_view, login_view, logout_veiw
@@ -26,11 +26,11 @@ urlpatterns = [
     path('hello/', hello),
     path('now_date/', now_date),
     path('goodby/', goodby),
-    path('', main_page_view),
-    path('products/', products_view),
+    path('', MainPageCBV.as_view(template_name='layouts/index.html')),
+    path('products/', ProductsCBV.as_view()),
     path('hashtags/', hashtags),
     path('products/<int:id>/', product_detail_view),
-    path('products/create/', create_product_veiw),
+    path('products/create/', CreateProductsCBV.as_view()),
     path('users/register/', register_view),
     path('users/login/', login_view),
     path('users/logout/', logout_veiw),
